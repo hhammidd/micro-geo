@@ -89,8 +89,8 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>micro-geo</configuration>
             </plugin>
         </plugins>
+        <finalName>micro-geo</finalName>
     </build>
 </project>
