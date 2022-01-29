@@ -1,0 +1,12 @@
+ spring:
+  jpa:
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: ${URL}
+    hikari:
+      username: ${DB_USERNAME}
+      password: ${DB_PASSWORD}
+      # put pass in kubernetes secret

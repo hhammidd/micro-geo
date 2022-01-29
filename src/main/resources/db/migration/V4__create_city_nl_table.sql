@@ -1,0 +1,77 @@
+--CREATE TABLE IF NOT EXISTS city_nl (
+--id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--city_name VARCHAR(50)NOT NULL,
+--city_code int ,
+--province_nl_id INT,
+--date_ins TIMESTAMP,
+--INDEX fk_city_nl_province1_nl_idx (province_nl_id ASC),
+--CONSTRAINT fk_city_nl_province1_nl
+--FOREIGN KEY (province_nl_id)
+--REFERENCES province_nl (id)
+--)ENGINE = INNODB;
+--
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Alblasserdam', 1, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Albrandswaard', 2, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Alphen aan den Rijn', 3, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Barendrecht', 4, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Bergambacht', 5, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Bernisse', 6, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Binnenmaas',7, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Bodegraven-Reeuwijk',8, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Brielle', 9, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Capelle aan den IJssel',10, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Cromstrijen', 11, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Delft', 12, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Dordrecht', 13, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Giessenlanden', 14, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Goeree-Overflakkee', 15, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Gorinchem', 16, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Gouda', 17, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('The Hague', 18, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Hardinxveld-Giessendam', 19, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Hellevoetsluis', 20, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Hendrik-Ido-Ambacht', 21, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Hillegom', 22, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Kaag en Braassem', 23, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Katwijk', 24, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Korendijk', 25, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Krimpen aan den IJssel',26, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Lansingerland', 27, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Leerdam', 28, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Leiden', 29, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Leiderdorp', 30, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Leidschendam-Voorburg', 31, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Lisse', 32, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Maassluis', 33, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Midden-Delfland', 34, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Molenwaard', 35, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Nederlek', 36, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Nieuwkoop', 37, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Noordwijk', 38, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Noordwijkerhout', 39, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Oegstgeest', 40, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Oud-Beijerland', 41, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Ouderkerk', 42, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Papendrecht', 43, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Pijnacker-Nootdorp', 44, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Ridderkerk', 45, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Rijswijk', 46, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Rotterdam', 47, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Schiedam', 48, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Schoonhoven', 49, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Sliedrecht', 50, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Spijkenisse', 51, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Strijen', 52, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Teylingen', 53, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Vlaardingen', 54, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Vlist', 55, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Voorschoten', 56, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Waddinxveen', 57, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Wassenaar', 58, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Westland', 59, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Westvoorne', 60, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Zederik', 61, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Zoetermeer', 62, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Zoeterwoude', 63, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Zuidplas', 64, 10, '2020-06-19 10:10:10');
+--INSERT INTO city_nl(city_name, city_code, province_nl_id, date_ins) VALUES ('Zwijndrecht', 65, 10, '2020-06-19 10:10:10');
