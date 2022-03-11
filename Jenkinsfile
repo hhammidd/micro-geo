@@ -1,10 +1,10 @@
 properties([
-  parameters([
-    string(name: 'service_name', defaultValue: 'micro-geo', description: 'Service-name', ),
-    string(name: 'IMAGE_TAG', defaultValue: '11', description: 'Image TAG', ),
-        string(name: 'branch', defaultValue: 'master', description: 'Which is the branch triggered', ),
-        string(name: 'environment', defaultValue: 'sale_tst', description: 'Which cluster you need to deploy, sale_tst/sale_acc/sale_prd', ),
-   ])
+        parameters([
+                string(name: 'service_name', defaultValue: 'micro-geo', description: 'Service-name',),
+                string(name: 'IMAGE_TAG', defaultValue: '11', description: 'Image TAG',),
+                string(name: 'branch', defaultValue: 'master', description: 'Which is the branch triggered',),
+                string(name: 'environment', defaultValue: 'sale_tst', description: 'Which cluster you need to deploy, sale_tst/sale_acc/sale_prd',),
+        ])
 ])
 
 pipeline {
@@ -14,36 +14,29 @@ pipeline {
         registryCredential = ''
         dockerImage = ''
         //Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
-         IMAGE = readMavenPom().getArtifactId()
-         VERSION = readMavenPom().getVersion()
+        IMAGE = readMavenPom().getArtifactId()
+        VERSION = readMavenPom().getVersion()
     }
     agent any
     stages {
         stage("git checkout") {
-            steps{
+            steps {
                 git 'https://github.com/hhammidd/${service_name}.git'
             }
         }
 
-        stage("echo variables") {
-                    steps{
-                        sh "echo ${IMAGE}"
-                        sh "echo ${VERSION}"
-                    }
-                }
-
 
         stage("build-test") {
-            steps{
+            steps {
                 sh "mvn clean install"
 //                 sh "echo ${branch}"
             }
         }
         stage("build Image") {
-            steps{
+            steps {
                 script {
 //                     dockerImage = docker.build registry + "/$IMAGE" + ":$BUILD_NUMBER"
-                        dockerImage = docker.build registry + ":${VERSION}"
+                    dockerImage = docker.build registry + ":${VERSION}"
                 }
             }
         }
@@ -51,7 +44,7 @@ pipeline {
         stage("Push image") {
             steps {
                 script {
-                    docker.withRegistry( '' ) {
+                    docker.withRegistry('') {
                         dockerImage.push()
                     }
                 }
@@ -79,7 +72,7 @@ pipeline {
                 }
 */
         stage("Helm chart checkout") {
-            steps{
+            steps {
                 sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/"
                 sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/.git"
                 sh "git clone https://github.com/hhammidd/Charts.git  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}"
@@ -87,7 +80,7 @@ pipeline {
         }
 
         stage("Install helm and deploy") {
-            steps{
+            steps {
                 sh " helm upgrade --install micro-geo  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/springboot-services --set tag=${VERSION}"
             }
         }
