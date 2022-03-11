@@ -74,25 +74,25 @@ pipeline {
         stage("Helm chart checkout") {
             steps {
                // remove the dir
-                sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/"
-                sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/.git"
+                sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts"
+                sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts/.git"
 
                 // get the helm.yaml variables
-                sh "git clone https://github.com/hhammidd/${IMAGE}.git  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/1"
+                sh "git clone https://github.com/hhammidd/${IMAGE}.git  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/code"
 
                 // checkout last Chart
-                sh "git clone https://github.com/hhammidd/Charts.git  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}"
+                sh "git clone https://github.com/hhammidd/Charts.git  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts"
 
                 // replace spring boot helm.yml with value.yaml
-                sh "cp ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/1/helm.yml ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/springboot-services/values.yaml"
+                sh "cp ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/code/helm.yml ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts/springboot-services/values.yaml"
                 // remove unwanted code
-                sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}"
+                sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts"
             }
         }
 
         stage("Install helm and deploy") {
             steps {
-                sh " helm upgrade --install ${service_name}  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/springboot-services --set tag=${VERSION}"
+                sh " helm upgrade --install ${service_name}  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts/springboot-services --set tag=${VERSION}"
             }
         }
 
