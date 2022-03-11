@@ -20,7 +20,7 @@ pipeline {
     stages {
         stage("git checkout") {
             steps{
-                git 'https://github.com/hhammidd/$IMAGE.git'
+                git 'https://github.com/hhammidd/${IMAGE}.git'
             }
         }
 
@@ -42,7 +42,7 @@ pipeline {
             steps{
                 script {
 //                     dockerImage = docker.build registry + "/$IMAGE" + ":$BUILD_NUMBER"
-                        dockerImage = docker.build registry + "/$IMAGE" + ":$BUILD_NUMBER"
+                        dockerImage = docker.build registry + "/${IMAGE}" + ":$BUILD_NUMBER"
                 }
             }
         }
@@ -79,15 +79,15 @@ pipeline {
 */
         stage("Helm chart checkout") {
             steps{
-                sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/$IMAGE/"
-                sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/$IMAGE/.git"
-                sh "git clone https://github.com/hhammidd/Charts.git  ~/apps/apps-helm-charts/helm-checkouts/$IMAGE"
+                sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/"
+                sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/.git"
+                sh "git clone https://github.com/hhammidd/Charts.git  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}"
             }
         }
 
         stage("Install helm and deploy") {
             steps{
-                sh " helm upgrade --install micro-geo  ~/apps/apps-helm-charts/helm-checkouts/springboot-services/$IMAGE --set tag=${params.IMAGE_TAG}"
+                sh " helm upgrade --install micro-geo  ~/apps/apps-helm-charts/helm-checkouts/springboot-services/${IMAGE} --set tag=${params.IMAGE_TAG}"
             }
         }
 
