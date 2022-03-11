@@ -10,7 +10,7 @@ properties([
 pipeline {
 
     environment {
-        registry = "hhssaaffii/"
+        registry = "hhssaaffii/${service_name}"
         registryCredential = ''
         dockerImage = ''
         //Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
@@ -43,7 +43,7 @@ pipeline {
             steps{
                 script {
 //                     dockerImage = docker.build registry + "/$IMAGE" + ":$BUILD_NUMBER"
-                        dockerImage = docker.build registry + "/${IMAGE}" + ":$BUILD_NUMBER"
+                        dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
             }
         }
