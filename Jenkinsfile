@@ -66,7 +66,7 @@ pipeline {
 */
         stage("Helm chart checkout") {
             steps{
-                sh "rm -rf .git"
+                sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/.git"
                 sh "git clone https://github.com/hhammidd/Charts.git  ~/apps/apps-helm-charts/helm-checkouts/"
             }
         }
