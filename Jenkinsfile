@@ -1,5 +1,6 @@
 properties([
   parameters([
+    string(name: 'service_name', defaultValue: 'micro-geo', description: 'Service-name', ),
     string(name: 'IMAGE_TAG', defaultValue: '11', description: 'Image TAG', ),
         string(name: 'branch', defaultValue: 'master', description: 'Which is the branch triggered', ),
         string(name: 'environment', defaultValue: 'sale_tst', description: 'Which cluster you need to deploy, sale_tst/sale_acc/sale_prd', ),
@@ -20,7 +21,7 @@ pipeline {
     stages {
         stage("git checkout") {
             steps{
-                git 'https://github.com/hhammidd/${IMAGE}.git'
+                git 'https://github.com/hhammidd/${service_name}.git'
             }
         }
 
