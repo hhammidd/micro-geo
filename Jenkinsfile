@@ -79,6 +79,7 @@ pipeline {
 
                 // get the helm.yaml variables
                 sh "git clone https://github.com/hhammidd/${IMAGE}.git  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/code"
+                sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/code"
 
                 // checkout last Chart
                 sh "git clone https://github.com/hhammidd/Charts.git  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts"
