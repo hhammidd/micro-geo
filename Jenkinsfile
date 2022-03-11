@@ -22,7 +22,7 @@ pipeline {
         stage("build-test") {
             steps{
                 sh "mvn clean install"
-                sh "echo ${branch}"
+//                 sh "echo ${branch}"
             }
         }
         stage("build Image") {
