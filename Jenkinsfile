@@ -21,27 +21,27 @@ pipeline {
 
         stage("build-test") {
             steps{
-                sh "mvn clean install"
+                sh "echo ${branch}"
 //                 sh "echo ${branch}"
             }
         }
-        stage("build Image") {
-            steps{
-                script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                }
-            }
-        }
-
-        stage("Push image") {
-            steps {
-                script {
-                    docker.withRegistry( '' ) {
-                        dockerImage.push()
-                    }
-                }
-            }
-        }
+//         stage("build Image") {
+//             steps{
+//                 script {
+//                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
+//                 }
+//             }
+//         }
+//
+//         stage("Push image") {
+//             steps {
+//                 script {
+//                     docker.withRegistry( '' ) {
+//                         dockerImage.push()
+//                     }
+//                 }
+//             }
+//         }
 
 /*
         stage("Remove Unused docker image") {
