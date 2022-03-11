@@ -1,7 +1,7 @@
 properties([
   parameters([
     string(name: 'IMAGE_TAG', defaultValue: '11', description: 'Image TAG', ),
-    string(name: 'BRANCH', defaultValue: 'master', description: 'Which is the branch triggered', )
+    string(name: 'branch', defaultValue: 'master', description: 'Which is the branch triggered', )
    ])
 ])
 
@@ -22,6 +22,7 @@ pipeline {
         stage("build-test") {
             steps{
                 sh "mvn clean install"
+                sh "echo ${branch}"
             }
         }
         stage("build Image") {
