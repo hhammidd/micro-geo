@@ -1,7 +1,8 @@
 properties([
   parameters([
     string(name: 'IMAGE_TAG', defaultValue: '11', description: 'Image TAG', ),
-    string(name: 'branch', defaultValue: 'master', description: 'Which is the branch triggered', )
+    string(name: 'branch', defaultValue: 'master', description: 'Which is the branch triggered', ),
+    string(name: 'environment', defaultValue: 'sale_tst', description: 'Which cluster you need to deploy, sale_tst/sale_acc/sale_prd', ),
    ])
 ])
 
@@ -25,6 +26,12 @@ pipeline {
 //                 sh "echo ${branch}"
             }
         }
+        stage("environment") {
+                    steps{
+                        sh "echo ${environment}"
+        //                 sh "echo ${branch}"
+                    }
+                }
 //         stage("build Image") {
 //             steps{
 //                 script {
