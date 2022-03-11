@@ -86,7 +86,7 @@ pipeline {
                 // replace spring boot helm.yml with value.yaml
                 sh "cp ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/code/helm.yml ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts/springboot-services/values.yaml"
                 // remove unwanted code
-                sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts"
+                sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/code"
             }
         }
 
