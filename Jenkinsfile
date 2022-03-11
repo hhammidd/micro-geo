@@ -73,12 +73,12 @@ pipeline {
 */
         stage("Helm chart checkout") {
             steps {
-                // get the helm.yaml variables
-                sh "git clone https://github.com/hhammidd/${IMAGE}.git  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/1"
-
-                // remove the dir
+               // remove the dir
                 sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/"
                 sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/.git"
+
+                // get the helm.yaml variables
+                sh "git clone https://github.com/hhammidd/${IMAGE}.git  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/1"
 
                 // checkout last Chart
                 sh "git clone https://github.com/hhammidd/Charts.git  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}"
