@@ -43,7 +43,7 @@ pipeline {
             steps{
                 script {
 //                     dockerImage = docker.build registry + "/$IMAGE" + ":$BUILD_NUMBER"
-                        dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                        dockerImage = docker.build registry + ":${VERSION}"
                 }
             }
         }
@@ -88,7 +88,7 @@ pipeline {
 
         stage("Install helm and deploy") {
             steps{
-                sh " helm upgrade --install micro-geo  ~/apps/apps-helm-charts/helm-checkouts/springboot-services/${IMAGE} --set tag=${params.IMAGE_TAG}"
+                sh " helm upgrade --install micro-geo  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/springboot-services --set tag=${VERSION}"
             }
         }
 
