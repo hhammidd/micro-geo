@@ -63,13 +63,18 @@ pipeline {
                     }
 
                 }
-
+*/
+        stage("Helm chart checkout") {
+            steps{
+                sh "git clone https://github.com/hhammidd/Charts.git  ~/apps/apps-helm-charts/helm-checkouts/"
+            }
+        }
 
         stage("Install helm and deploy") {
             steps{
-                sh " helm upgrade --install micro-geo  ~/apps/apps-helm-charts/micro-geo/ --set tag=${params.IMAGE_TAG}"
+                sh " helm upgrade --install micro-geo  ~/apps/apps-helm-charts/helm-checkouts/springboot-services/ --set tag=${params.IMAGE_TAG}"
             }
         }
-*/
+
     }
 }
