@@ -24,6 +24,13 @@ pipeline {
             }
         }
 
+        stage("echo variables") {
+                    steps{
+                        sh "echo ${IMAGE}"
+                        sh "echo ${VERSION}"
+                    }
+                }
+
 
         stage("build-test") {
             steps{
