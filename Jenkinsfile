@@ -81,7 +81,7 @@ pipeline {
 
         stage("Install helm and deploy") {
             steps {
-                sh " helm upgrade --install micro-geo  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/springboot-services --set tag=${VERSION}"
+                sh " helm upgrade --install ${service_name}  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/springboot-services --set tag=${VERSION}"
             }
         }
 
