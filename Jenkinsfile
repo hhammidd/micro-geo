@@ -1,6 +1,7 @@
 properties([
   parameters([
-    string(name: 'IMAGE_TAG', defaultValue: '11', description: 'Image TAG', )
+    string(name: 'IMAGE_TAG', defaultValue: '11', description: 'Image TAG', ),
+    string(name: 'BRANCH', defaultValue: 'master', description: 'Which is the branch triggered', )
    ])
 ])
 
@@ -47,7 +48,6 @@ pipeline {
                 sh "docker rmi $registry:$BUILD_NUMBER"
             }
         }
-
         stage("Pull image from docker registry") {
             steps{
                 sh "docker pull hhssaaffii/micro-geo:${params.IMAGE_TAG}"
@@ -61,13 +61,13 @@ pipeline {
                     }
 
                 }
-*/
+
 
         stage("Install helm and deploy") {
             steps{
                 sh " helm upgrade --install micro-geo  ~/apps/apps-helm-charts/micro-geo/ --set tag=${params.IMAGE_TAG}"
             }
         }
-
+*/
     }
 }
