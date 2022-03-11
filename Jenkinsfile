@@ -7,10 +7,14 @@ properties([
 ])
 
 pipeline {
+
     environment {
         registry = "hhssaaffii/micro-geo"
         registryCredential = ''
         dockerImage = ''
+        //Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
+         IMAGE = readMavenPom().getArtifactId()
+         VERSION = readMavenPom().getVersion()
     }
     agent any
     stages {
@@ -19,6 +23,7 @@ pipeline {
                 git 'https://github.com/hhammidd/micro-geo.git'
             }
         }
+
 
         stage("build-test") {
             steps{

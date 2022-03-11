@@ -1,0 +1,22 @@
+image= ##DOCKER_REGISTRY##/micro-geo
+imageTag: "##VERSION##"
+
+labels:
+  deployer: "HAMID"
+
+command:
+#  - /opt/run.sh
+
+envronmentVariable:
+  - name: BLABLA
+    valueFrom:
+
+ingress:
+  enabled: true
+  host:
+    - micro-geo##FEATURE##.##INGRESS_DOMAIN##
+
+
+service:
+  servicePort: 80
+  type: ClusterIP
