@@ -1,22 +1,22 @@
-image= ##DOCKER_REGISTRY##/micro-geo
-imageTag: "##VERSION##"
-
-labels:
-  deployer: "HAMID"
-
-command:
-#  - /opt/run.sh
-
-envronmentVariable:
-  - name: BLABLA
-    valueFrom:
-
-ingress:
-  enabled: true
-  host:
-    - micro-geo##FEATURE##.##INGRESS_DOMAIN##
-
-
+replicaCount: 1
+tag: 1
+namespace: default
 service:
-  servicePort: 80
-  type: ClusterIP
+  type: NodePort
+  name: micro-geo-svc
+
+ImageName: hhssaaffii/micro-geo
+
+port: 8092
+
+fullName: micro-geo
+
+appName: micro-geo
+
+portNumber: 8092
+host: hello-world-7.pvt
+
+image: ##DOCKER_REGISTRY##/hhssaaffii/micro-geo
+
+artifactory:
+  name: artifactory
