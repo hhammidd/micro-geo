@@ -1,3 +1,5 @@
+@Library('javahome-demo') _
+
 properties([
         parameters([
                 string(name: 'service_name', defaultValue: 'micro-geo', description: 'Service-name',),
@@ -39,7 +41,7 @@ pipeline {
 
         stage("git checkout") {
             steps {
-                git 'https://github.com/hhammidd/${service_name}.git'
+                checkout("${service_name}")
             }
         }
 
