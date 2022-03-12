@@ -3,7 +3,7 @@ properties([
                 string(name: 'service_name', defaultValue: 'micro-geo', description: 'Service-name',),
                 string(name: 'IMAGE_TAG', defaultValue: '', description: 'Image TAG',),
                 string(name: 'branch', defaultValue: 'master', description: 'Which is the branch triggered',),
-                string(name: 'environment', defaultValue: 'bricks-tst', description: 'Which cluster you need to deploy, bricks-tst/bricks-acc/bricks-prd',),
+                string(name: 'environment', defaultValue: 'default', description: 'Which cluster you need to deploy, default/bricks-tst/bricks-acc/bricks-prd',),
         ])
 ])
 
@@ -104,6 +104,9 @@ pipeline {
 
                 // replace spring boot helm.yml with value.yaml
                 sh "cp ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/code/helm.yml ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts/springboot-services/values.yaml"
+
+                // cpy secrets to chart dir
+                sh "cp ~/apps/apps-helm-charts/secrets/${IMAGE}/secret.yaml ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts/springboot-services/templates"
                 // remove unwanted code
                 sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/code"
             }
