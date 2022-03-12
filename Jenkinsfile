@@ -93,7 +93,7 @@ pipeline {
 
         stage("Install helm and deploy") {
             steps {
-                sh " helm upgrade --install ${service_name}  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts/springboot-services --set tag=${VERSION} --namespace=default"
+                sh " helm upgrade --install ${service_name}  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts/springboot-services --set tag=${VERSION} --namespace=${service_name}"
             }
         }
 
