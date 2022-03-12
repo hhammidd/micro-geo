@@ -24,7 +24,7 @@ pipeline {
         stage("if") {
             steps {
                 script {
-                    if (true) {
+                    if (${IMAGE_TAG}?.trim()) {
                         stage ('Stage 1') {
                             sh 'echo Stage 1'
                         }
