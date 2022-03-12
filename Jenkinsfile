@@ -21,79 +21,26 @@ pipeline {
     }
     agent any
     stages {
-
-
         stage("get version") {
             steps {
                 script {
                     if ("${IMAGE_TAG}"?.trim()) {
-                        stage ('Input pam') {
+                        stage('Input pam') {
                             sh 'echo ${IMAGE_TAG}'
                         }
                     } else {
-                        stage ('current') {
+                        stage('current') {
                             sh 'echo ${VERSION}'
                         }
                     }
                 }
             }
         }
+        build("${service_name}", "${VERSION}")
 
-        stage("git checkout") {
-            steps {
-                checkout("${service_name}")
-            }
-        }
-
-
-        stage("build-test") {
-            steps {
-                sh "mvn clean install"
-//                 sh "echo ${branch}"
-            }
-        }
-        stage("build Image") {
-            steps {
-                script {
-//                     dockerImage = docker.build registry + "/$IMAGE" + ":$BUILD_NUMBER"
-                    dockerImage = docker.build registry + ":${VERSION}"
-                }
-            }
-        }
-
-        stage("Push image") {
-            steps {
-                script {
-                    docker.withRegistry('') {
-                        dockerImage.push()
-                    }
-                }
-            }
-        }
-
-/*
-        stage("Remove Unused docker image") {
-            steps{
-                sh "docker rmi $registry:$BUILD_NUMBER"
-            }
-        }
-        stage("Pull image from docker registry") {
-            steps{
-                sh "docker pull hhssaaffii/micro-geo:${params.IMAGE_TAG}"
-            }
-        }
-
-
-        stage("Remove Unused docker image") {
-                    steps{
-                            sh "docker rmi $registry:${BUILD_NUMBER.toInteger()-2}"
-                    }
-
-                }
-*/
         stage("Helm chart checkout") {
             steps {
-               // remove the dir
+                // remove the dir
                 sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts"
                 sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts/.git"
                 sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/code"
