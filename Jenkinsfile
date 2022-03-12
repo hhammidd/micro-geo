@@ -20,12 +20,19 @@ pipeline {
     agent any
     stages {
 
+
         stage("if") {
             steps {
-                if (${IMAGE_TAG}.isEmpty()) {
-                    sh 'echo ${IMAGE}'
-                } else {
-                    sh "echo ${IMAGE_TAG}"
+                script {
+                    if (true) {
+                        stage ('Stage 1') {
+                            sh 'echo Stage 1'
+                        }
+                    } else {
+                        stage ('Stage 2') {
+                            sh 'echo Stage 3'
+                        }
+                    }
                 }
             }
         }
