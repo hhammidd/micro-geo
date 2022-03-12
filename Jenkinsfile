@@ -44,7 +44,7 @@ pipeline {
 
         stage("start build and push image") {
             steps {
-                buildimage(${VERSION})
+                buildimage("${VERSION}")
             }
         }
 
