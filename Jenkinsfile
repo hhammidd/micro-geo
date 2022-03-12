@@ -43,7 +43,9 @@ pipeline {
         }
 
         stage("start build and push image") {
-            buildimage(${VERSION})
+            steps {
+                buildimage(${VERSION})
+            }
         }
 
         stage("Helm chart checkout") {
