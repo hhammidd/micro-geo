@@ -48,32 +48,9 @@ pipeline {
             }
         }
 
-        stage("Helm chart checkout") {
+        stage("deploy") {
             steps {
-                // remove the dir
-                sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts"
-                sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts/.git"
-                sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/code"
-
-                // get the helm.yaml variables
-                sh "git clone https://github.com/hhammidd/${IMAGE}.git  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/code"
-
-                // checkout last Chart
-                sh "git clone https://github.com/hhammidd/Charts.git  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts"
-
-                // replace spring boot helm.yml with value.yaml
-                sh "cp ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/code/helm.yml ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts/springboot-services/values.yaml"
-
-                // cpy secrets to chart dir
-                sh "cp ~/apps/apps-helm-charts/secrets/${IMAGE}/secret.yaml ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts/springboot-services/templates"
-                // remove unwanted code
-                sh "rm -rf ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/code"
-            }
-        }
-
-        stage("Install helm and deploy") {
-            steps {
-                sh " helm upgrade --install ${service_name}  ~/apps/apps-helm-charts/helm-checkouts/${IMAGE}/charts/springboot-services --set tag=${VERSION} --namespace=${environment}"
+                createhelm("${IMAGE}")
             }
         }
 
