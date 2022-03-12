@@ -22,7 +22,7 @@ pipeline {
 
         stage("if") {
             steps {
-                if (${IMAGE_TAG}?.trim()) {
+                if (${IMAGE_TAG}.isEmpty()) {
                     sh 'echo ${IMAGE}'
                 } else {
                     sh "echo ${IMAGE_TAG}"
