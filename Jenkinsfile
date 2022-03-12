@@ -42,22 +42,8 @@ pipeline {
             }
         }
 
-        stage("build Image") {
-            steps {
-                script {
-                    dockerImage = docker.build registry + ":${VERSION}"
-                }
-            }
-        }
-
-        stage("Push image") {
-            steps {
-                script {
-                    docker.withRegistry('') {
-                        dockerImage.push()
-                    }
-                }
-            }
+        stage("start build and push image") {
+            buildimage(${VERSION})
         }
 
         stage("Helm chart checkout") {
