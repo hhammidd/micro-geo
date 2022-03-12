@@ -1,6 +1,6 @@
 replicaCount: 1
 tag: 1
-namespace: bricks-tst
+#namespace: bricks-tst
 service:
   type: NodePort
   name: micro-geo-svc
