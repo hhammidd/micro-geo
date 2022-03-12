@@ -37,7 +37,9 @@ pipeline {
             }
         }
         stage("start build process") {
-            build("${service_name}", "${VERSION}")
+            steps {
+                build("${service_name}", "${VERSION}")
+            }
         }
 
 
