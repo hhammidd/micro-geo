@@ -21,16 +21,16 @@ pipeline {
     stages {
 
 
-        stage("if") {
+        stage("get version") {
             steps {
                 script {
                     if ("${IMAGE_TAG}"?.trim()) {
-                        stage ('Stage 1') {
-                            sh 'echo Stage 1'
+                        stage ('Input pam') {
+                            sh 'echo ${IMAGE_TAG}'
                         }
                     } else {
-                        stage ('Stage 2') {
-                            sh 'echo Stage 3'
+                        stage ('current') {
+                            sh 'echo ${VERSION}'
                         }
                     }
                 }
