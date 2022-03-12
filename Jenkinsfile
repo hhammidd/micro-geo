@@ -1,9 +1,9 @@
 properties([
         parameters([
                 string(name: 'service_name', defaultValue: 'micro-geo', description: 'Service-name',),
-                string(name: 'IMAGE_TAG', defaultValue: '11', description: 'Image TAG',),
+                string(name: 'IMAGE_TAG', defaultValue: '', description: 'Image TAG',),
                 string(name: 'branch', defaultValue: 'master', description: 'Which is the branch triggered',),
-                string(name: 'environment', defaultValue: 'bricks-tst', description: 'Which cluster you need to deploy, sale_tst/sale_acc/sale_prd',),
+                string(name: 'environment', defaultValue: 'bricks-tst', description: 'Which cluster you need to deploy, bricks-tst/bricks-acc/bricks-prd',),
         ])
 ])
 
@@ -19,6 +19,17 @@ pipeline {
     }
     agent any
     stages {
+
+        stage("if") {
+            steps {
+                if ('${IMAGE_TAG}' == null) {
+                    sh 'echo ${IMAGE}'
+                } else {
+                    sh "echo ${IMAGE_TAG}"
+                }
+            }
+        }
+
         stage("git checkout") {
             steps {
                 git 'https://github.com/hhammidd/${service_name}.git'
