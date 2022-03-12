@@ -36,7 +36,10 @@ pipeline {
                 }
             }
         }
-        build("${service_name}", "${VERSION}")
+        stage("start build process") {
+            build("${service_name}", "${VERSION}")
+        }
+
 
         stage("Helm chart checkout") {
             steps {
