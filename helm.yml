@@ -4,6 +4,7 @@ tag: 1
 service:
   type: NodePort
   name: micro-geo-svc
+  nodePort: 32737
 
 ImageName: hhssaaffii/micro-geo
 
