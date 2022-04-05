@@ -1,5 +1,5 @@
-com/ielink/geo/controller/CityController.class
 com/ielink/geo/controller/PostalcodeController.class
+com/ielink/geo/controller/CityController.class
 com/ielink/geo/dao/ComuneDao.class
 com/ielink/geo/controller/dto/ComuneTo.class
 com/ielink/geo/controller/GeoCombineController.class
@@ -17,8 +17,8 @@ com/ielink/geo/controller/dto/CityTo.class
 com/ielink/geo/dao/NationDao.class
 com/ielink/geo/service/impl/CityServiceImpl.class
 com/ielink/geo/controller/geoTree/TreeGeoController.class
-com/ielink/geo/model/Province.class
 com/ielink/geo/service/coverter/ComuneMapper.class
+com/ielink/geo/model/Province.class
 com/ielink/geo/service/coverter/RegionMapper.class
 com/ielink/geo/controller/NationController.class
 com/ielink/geo/controller/dto/ComuneTreeTo.class
@@ -63,7 +63,7 @@ com/ielink/geo/model/ProvinceRegionTo.class
 com/ielink/geo/controller/dto/GeoFilteredTo.class
 com/ielink/geo/controller/dto/NationTo.class
 com/ielink/geo/controller/CapController.class
-com/ielink/geo/model/Cap.class
 com/ielink/geo/service/ProvinceService.class
+com/ielink/geo/model/Cap.class
 com/ielink/geo/controller/dto/SalePointsTo.class
 com/ielink/geo/model/Nation.class

@@ -11,7 +11,7 @@
     <groupId>com.ielink</groupId>
     <artifactId>micro-geo</artifactId>
 <!--    <version>0.0.2-SNAPSHOT</version> TODO keep snapshot for tst env-->
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <name>micro-geo</name>
     <description>Demo project for Spring Boot</description>
 
