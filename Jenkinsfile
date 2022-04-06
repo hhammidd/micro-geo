@@ -21,24 +21,16 @@ pipeline {
     }
     agent any
     stages {
-//        stage("get version") {
-//            steps {
-//                script {
-//                    if ("${IMAGE_TAG}"?.trim()) {
-//                        stage('Input pam') {
-//                            sh 'echo ${IMAGE_TAG}'
-//                        }
-//                    } else {
-//                        stage('current') {
-//                            sh 'echo ${VERSION}'
-//                        }
-//                    }
-//                }
-//            }
-//        }
+
         stage("start build process") {
             steps {
                 buildapp("${service_name}")
+            }
+        }
+
+        stage("OWASP") {
+            steps {
+                checkOwasp()
             }
         }
 
