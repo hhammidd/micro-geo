@@ -57,6 +57,7 @@
         <dependency-check-maven.version>7.0.4</dependency-check-maven.version>
         <commons-io.version>2.11.0</commons-io.version>
         <guava.version>31.1-android</guava.version>
+        <springdoc-openapi-ui.version>1.6.6</springdoc-openapi-ui.version>
     </properties>
 
     <dependencies>
@@ -77,18 +78,10 @@
             </exclusions>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${springfox-swagger2.version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${springfox-swagger-ui.version}</version>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>${springdoc-openapi-ui.version}</version>
         </dependency>
 
         <dependency>
