@@ -8,7 +8,7 @@ properties([
                 string(name: 'environment', defaultValue: 'default', description: 'Which cluster you need to deploy, default/bricks-tst/bricks-acc/bricks-prd',),
         ])
 ])
-
+currentBuild.displayName = "${service_name}-#" + currentBuild.number
 pipeline {
 
     environment {
