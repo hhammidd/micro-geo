@@ -24,7 +24,8 @@ pipeline {
 
         stage("start build process") {
             steps {
-                buildapp("${service_name}")
+//                buildapp("${service_name}")
+                dos("${service_name}")
                 script {
                     currentBuild.description = "<b>environment: </b>${environment}<br/><b>version:</b>${VERSION}<br/><b>PR:</b>TODO"
                 }
