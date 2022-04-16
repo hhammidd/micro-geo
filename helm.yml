@@ -15,6 +15,8 @@ fullName: micro-geo
 appName: micro-geo
 
 portNumber: 8094
+ingress:
+  enabled: true
 host: hello-world-7.pvt
 
 image: ##DOCKER_REGISTRY##/hhssaaffii/micro-geo
