@@ -4,17 +4,18 @@ tag: 1
 service:
   type: NodePort
   name: micro-geo-svc
-  nodePort: 32737
+  nodePortTst: 30188
+  nodePortPrd: 32737
 
 ImageName: hhssaaffii/micro-geo
 
 port: 8094
+portTest: 8099
 
 fullName: micro-geo
 
 appName: micro-geo
 
-portNumber: 8094
 ingress:
   enabled: true
 host: hello-world-7.pvt
