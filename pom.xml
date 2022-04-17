@@ -11,7 +11,7 @@
     <groupId>com.ielink</groupId>
     <artifactId>micro-geo</artifactId>
 <!--    <version>0.0.2-SNAPSHOT</version> TODO keep snapshot for tst env-->
-    <version>0.0.11-SNAPSHOT</version>
+    <version>0.0.12-SNAPSHOT</version>
     <name>micro-geo</name>
     <description>Micro geo app</description>
 
