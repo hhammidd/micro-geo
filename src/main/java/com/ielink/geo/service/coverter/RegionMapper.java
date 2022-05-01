@@ -14,6 +14,7 @@ public class RegionMapper {
         regionTo.setRegionId(region.getRegionId());
         regionTo.setRegionName(region.getRegionName());
         regionTo.setRegionCode(region.getRegionCode());
+        regionTo.setCodeGeo(region.getCodeGeo());
         regionTo.setNationId(region.getRegionFather());
 
         return regionTo;
@@ -24,6 +25,7 @@ public class RegionMapper {
         region.setRegionId(null);
         region.setRegionName(regionTo.getRegionName());
         region.setRegionCode(regionTo.getRegionCode());
+        region.setCodeGeo(regionTo.getCodeGeo());
         region.setRegionFather(regionTo.getNationId());
 
         return region;

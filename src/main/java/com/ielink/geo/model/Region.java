@@ -17,15 +17,20 @@ public class Region {
     @Column(name = "region_code")
     private String regionCode;
 
+    @Column(name = "code_geo")
+    private int codeGeo;
+
     @Column(name = "nation_id")
     private Long regionFather;
 
     public Region() {
     }
 
-    public Region(String regionName, String regionCode, Long regionFather) {
+    public Region(Long regionId, String regionName, String regionCode, int codeGeo, Long regionFather) {
+        this.regionId = regionId;
         this.regionName = regionName;
         this.regionCode = regionCode;
+        this.codeGeo = codeGeo;
         this.regionFather = regionFather;
     }
 
@@ -51,6 +56,14 @@ public class Region {
 
     public void setRegionCode(String regionCode) {
         this.regionCode = regionCode;
+    }
+
+    public int getCodeGeo() {
+        return codeGeo;
+    }
+
+    public void setCodeGeo(int codeGeo) {
+        this.codeGeo = codeGeo;
     }
 
     public Long getRegionFather() {

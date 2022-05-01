@@ -4,15 +4,18 @@ public class RegionTo {
     private Long regionId;
     private String regionName;
     private String regionCode;
+    private int codeGeo;
     private Long nationId;
 
     public RegionTo() {
     }
 
-    public RegionTo(Long regionId, String regionName, String regionCode, Long nationId) {
+
+    public RegionTo(Long regionId, String regionName, String regionCode, int codeGeo, Long nationId) {
         this.regionId = regionId;
         this.regionName = regionName;
         this.regionCode = regionCode;
+        this.codeGeo = codeGeo;
         this.nationId = nationId;
     }
 
@@ -38,6 +41,14 @@ public class RegionTo {
 
     public void setRegionCode(String regionCode) {
         this.regionCode = regionCode;
+    }
+
+    public int getCodeGeo() {
+        return codeGeo;
+    }
+
+    public void setCodeGeo(int codeGeo) {
+        this.codeGeo = codeGeo;
     }
 
     public Long getNationId() {
